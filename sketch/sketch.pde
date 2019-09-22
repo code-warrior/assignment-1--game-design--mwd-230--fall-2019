@@ -20,18 +20,20 @@
     Holding any of the arrow keys should not do anything more than move your creature by a factor of 1.
 */
 
-public int point = 50;
+public int starting_x = 50;
+public int starting_y = 50;
 public final static int HEAD_WIDTH_HEIGHT = 75;
 public final static int BODY_WIDTH = 250;
 public final static int BODY_HEIGHT = 150;
+public final static int MOVEMENT_SPEED = 10;
 
 void setup() {
     size(640, 400);
     background(0);
-    drawCreature(50, 50);
 }
 
 void drawCreature(int point_x, int point_y) {
+    background(0);
     point(point_x, point_y);
 
     //Body
@@ -59,5 +61,39 @@ void drawCreature(int point_x, int point_y) {
 }
 
 void draw() {
-    drawCreature(50, 50);
+    drawCreature(starting_x, starting_y);
 }
+
+void keyPressed() {
+  if(key == CODED) {
+      if(keyCode == 38 && starting_y > 0) {
+        starting_y -= MOVEMENT_SPEED;
+      }
+      else if(keyCode == 38 && starting_y < 0) {
+        starting_y = 50;
+      }
+      else if(keyCode == 40 && starting_y < 400 - (50 + BODY_HEIGHT)) {
+        starting_y += MOVEMENT_SPEED;
+      }
+      else if(keyCode == 40 && starting_y > 400 - (50 + BODY_HEIGHT + 50)) {
+        starting_y = 50;
+      }
+      else if(keyCode == 37 && starting_x > 0) {
+        starting_x -= MOVEMENT_SPEED;
+      }
+      else if(keyCode == 37 && starting_x < 0) {
+        starting_x = 50;
+      }
+      else if(keyCode == 39 && starting_x < 640 - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT + 20)) {
+        starting_x += MOVEMENT_SPEED;
+      }
+      else if(keyCode == 39 && starting_x > 640 - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT + 20)) {
+        starting_x = 50;
+      }
+      else {
+          System.out.println("No way jose " + key + " " + keyCode + " " + starting_x + " " + starting_y);
+          //left up right down
+          // 37  38 39    40
+      }
+    }
+  }
