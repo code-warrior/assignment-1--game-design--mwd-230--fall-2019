@@ -40,20 +40,20 @@ void drawCreature(int point_x, int point_y) {
     rect(point_x, point_y, BODY_WIDTH, BODY_HEIGHT);
     
     //Head
-    rect(point_x+200+HEAD_WIDTH_HEIGHT/2, (point_y + 100)/3 + point_y, HEAD_WIDTH_HEIGHT, HEAD_WIDTH_HEIGHT);
+    rect(point_x+200+HEAD_WIDTH_HEIGHT/2, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2, HEAD_WIDTH_HEIGHT, HEAD_WIDTH_HEIGHT);
     
     //Tusks
     triangle(
-        point_x+200+HEAD_WIDTH_HEIGHT, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT-20, 
-        point_x+200+HEAD_WIDTH_HEIGHT, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT, 
-        point_x+200+HEAD_WIDTH_HEIGHT+100, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT+20);
+        point_x+200+HEAD_WIDTH_HEIGHT, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT-20, 
+        point_x+200+HEAD_WIDTH_HEIGHT, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT, 
+        point_x+200+HEAD_WIDTH_HEIGHT+100, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT+20);
     triangle(
-        point_x+200+HEAD_WIDTH_HEIGHT, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT-20, 
-        point_x+200+HEAD_WIDTH_HEIGHT, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT, 
-        point_x+200+HEAD_WIDTH_HEIGHT+100, (point_y + 100)/3 + point_y + HEAD_WIDTH_HEIGHT-20);
+        point_x+200+HEAD_WIDTH_HEIGHT, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT-20, 
+        point_x+200+HEAD_WIDTH_HEIGHT, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT, 
+        point_x+200+HEAD_WIDTH_HEIGHT+100, point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + HEAD_WIDTH_HEIGHT-20);
 
     //Eye
-    ellipse(point_x+200+HEAD_WIDTH_HEIGHT/2 + (HEAD_WIDTH_HEIGHT/1.75), (point_y + 100)/3 + point_y + (HEAD_WIDTH_HEIGHT/1.75), 10, 10);
+    ellipse(point_x+200+HEAD_WIDTH_HEIGHT/2 + (HEAD_WIDTH_HEIGHT/1.75), point_y + BODY_WIDTH/3 - HEAD_WIDTH_HEIGHT/2 + (HEAD_WIDTH_HEIGHT/1.75), 10, 10);
 
     //Legs
     rect(point_x + (BODY_WIDTH/4)-10, point_y + BODY_HEIGHT, 10, 50);
@@ -69,26 +69,14 @@ void keyPressed() {
       if(keyCode == 38 && starting_y > 0) {
         starting_y -= MOVEMENT_SPEED;
       }
-      else if(keyCode == 38 && starting_y < 0) {
-        starting_y = 50;
-      }
       else if(keyCode == 40 && starting_y < 400 - (50 + BODY_HEIGHT)) {
         starting_y += MOVEMENT_SPEED;
-      }
-      else if(keyCode == 40 && starting_y > 400 - (50 + BODY_HEIGHT + 50)) {
-        starting_y = 50;
       }
       else if(keyCode == 37 && starting_x > 0) {
         starting_x -= MOVEMENT_SPEED;
       }
-      else if(keyCode == 37 && starting_x < 0) {
-        starting_x = 50;
-      }
       else if(keyCode == 39 && starting_x < 640 - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT + 20)) {
         starting_x += MOVEMENT_SPEED;
-      }
-      else if(keyCode == 39 && starting_x > 640 - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT + 20)) {
-        starting_x = 50;
       }
       else {
           System.out.println("No way jose " + key + " " + keyCode + " " + starting_x + " " + starting_y);
