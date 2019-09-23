@@ -72,18 +72,19 @@ void draw() {
     drawCreature(starting_x, starting_y);
 }
 
+//CHeck against the bounds of our canvas
 void keyReleased() {
   if(key == CODED) {
       if(keyCode == 38 && starting_y > 0) {
         starting_y -= MOVEMENT_SPEED;
       }
-      else if(keyCode == 40 && starting_y < 400 - (50 + BODY_HEIGHT)) {
+      else if(keyCode == 40 && starting_y < height - (50 + BODY_HEIGHT)) {
         starting_y += MOVEMENT_SPEED;
       }
       else if(keyCode == 37 && starting_x > 0) {
         starting_x -= MOVEMENT_SPEED;
       }
-      else if(keyCode == 39 && starting_x < 640 - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT)) {
+      else if(keyCode == 39 && starting_x < width - (50 + BODY_WIDTH + HEAD_WIDTH_HEIGHT)) {
         starting_x += MOVEMENT_SPEED;
       }
       //Debugging
