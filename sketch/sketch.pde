@@ -1,10 +1,10 @@
-public int start_x = 75;
-public int start_y = 300;
-public final static int HEAD_WIDTH_HEIGHT = 120;
-public final static int BODY_HEIGHT = 100;
-public final static int BODY_WIDTH = 100;
-public final static int SPEED = 20;
-public final static int WHITE = 255;
+int start_x = 75;
+int start_y = 300;
+int HEAD_WIDTH_HEIGHT = 120;
+int BODY_HEIGHT = 100;
+int BODY_WIDTH = 100;
+int SPEED = 20;
+int WHITE = 255;
 PImage bg;
 
 void setup() {
