@@ -4,7 +4,6 @@ int HEAD_WIDTH_HEIGHT = 120;
 int BODY_HEIGHT = 100;
 int BODY_WIDTH = 100;
 int SPEED = 20;
-int WHITE = 255;
 PImage bg;
 
 void setup() {
