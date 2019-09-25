@@ -29,7 +29,6 @@ void drawCreature(int point_x, int point_y) {
     ellipse(point_x+240,point_y,BODY_WIDTH,BODY_HEIGHT);
 
     //Eye
-    //light blue
     fill(5);
     rect(point_x+335,point_y-50, 5, 40, 20);
 }
